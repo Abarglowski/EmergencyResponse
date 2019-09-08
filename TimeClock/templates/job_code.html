@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% block title %}Job Code {% endblock %}
+
+{% block content %}
+<table style='width:100%'>
+    <tr class='bg-dark text-white' style='font-size:x-large'>
+        <th>Job code</th>
+        <th class='bg-white'></th>
+        <th>Description</th>
+        <th class='bg-white'></th>
+        <th>Hourly Rate</th>
+        <th class='bg-white'></th>
+        <th>Max Hours per day</th>
+        <th class='bg-white'></th>
+        <th class='text-dark'>edit</th>
+        <th class='bg-white'></th>
+        <th class='text-dark'>delete</th>
+        <th class='bg-white'></th>
+    </tr>
+    {% for JobCode in object_list %}
+    <tr><td class='bg-white'></td></tr>
+    <tr style='color:black;background:lightgray'>
+        <td class='py-2'>{{JobCode.jobCode}}</td>
+        <td class='bg-white'></td>
+        <td>{{JobCode.description}}</td>
+        <td class='bg-white'></td>
+        <td>${{JobCode.hourlyRate}}/Hr.</td>
+        <td class='bg-white'></td>
+        <td>{{JobCode.maxHoursPerDay}} Hr.</td>
+        <td class='bg-white'></td>
+        <td><a href='#'>Edit</a></td>
+        <td class='bg-white'></td>
+        <td><a href='#'>Delete</a></td>
+    </tr>
+    
+    {% endfor %}
+
+
+</table>
+{% endblock %}
