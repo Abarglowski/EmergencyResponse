@@ -1,15 +1,18 @@
 {% extends 'index.html' %}
-{% block title %}Job Code Management{% endblock %}
+{% block title %}Machine Management {% endblock %}
 
 {% block content %}
-<a class='text-dark' href='/timeclock/add/jobcode/' style='width:100%;padding-top:75px;text-align:right;'>Add New</a>
+
+<a class='text-dark' href='/timeclock/add/machine' style='width:100%;padding-top:75px;text-align:right;'>Add New</a>
+
+
 <table style='width:100%'>
     <tr class='bg-dark text-white' style='font-size:x-large'>
-        <th>Job code</th>
+        <th>Machine code</th>
         <th class='bg-white'></th>
         <th>Description</th>
         <th class='bg-white'></th>
-        <th>Hourly Rate</th>
+        <th>Hourly Rent</th>
         <th class='bg-white'></th>
         <th>Max Hours per day</th>
         <th class='bg-white'></th>
@@ -18,24 +21,25 @@
         <th class='text-dark'>delete</th>
         <th class='bg-white'></th>
     </tr>
-    {% for JobCode in object_list %}
+    {% for Machine in object_list %}
     <tr><td class='bg-white'></td></tr>
     <tr style='color:black;background:lightgray'>
-        <td class='py-2'>{{JobCode.jobCode}}</td>
+        <td class='py-2'>{{Machine.machineCode}}</td>
         <td class='bg-white'></td>
-        <td>{{JobCode.description}}</td>
+        <td>{{Machine.description}}</td>
         <td class='bg-white'></td>
-        <td>${{JobCode.hourlyRate}}/Hr.</td>
+        <td>${{Machine.hourlyRent}}/Hr.</td>
         <td class='bg-white'></td>
-        <td>{{JobCode.maxHoursPerDay}} Hr.</td>
+        <td>{{Machine.maxHoursPerDay}} Hr.</td>
         <td class='bg-white'></td>
-        <td><a class='text-dark' href='/timeclock/edit/jobcode/{{JobCode.id}}'>Edit</a></td>
+        <td><a class='text-dark' href='/timeclock/edit/machine/{{Machine.id}}'>Edit</a></td>
         <td class='bg-white'></td>
-        <td><form method="POST" action="{% url 'TimeClock:jobCodeDelete' JobCode.id %}">{% csrf_token %}<input style='background:none;border:0;' onclick="return confirm('Did you mean to delete {{JobCode.jobCode}}?')" type="submit" value="Delete"/></form></td>
+        <td><form method="POST" action="{% url 'TimeClock:machineDelete' Machine.id %}">{% csrf_token %}<input style='background:none;border:0;' onclick="return confirm('Did you mean to delete {{Machine.machineCode}}?')" type="submit" value="Delete"/></form></td>
     </tr>
     
     {% endfor %}
 
 
 </table>
+
 {% endblock %}

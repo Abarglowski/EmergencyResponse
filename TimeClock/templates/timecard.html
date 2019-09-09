@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% block title %}Timesheet Approval{% endblock %}
+
+{% block content %}
+<a href='#' style='width:100%;padding-top:75px;text-align:right;'>Add New</a>
+<table style='width:100%'>
+    <tr class='bg-dark text-white' style='font-size:x-large'>
+        <th>Site Code</th>
+        <th class='bg-white'></th>
+        <th>Contractor Name</th>
+        <th class='bg-white'></th>
+        <th>Total Hrs</th>
+        <th class='bg-white'></th>
+        <th>Total Amount</th>
+        <th class='bg-white'></th>
+        <th class='text-dark'>edit</th>
+        <th class='bg-white'></th>
+    </tr>
+    {% for Timecard in object_list %}
+    <tr><td class='bg-white'></td></tr>
+    <tr style='color:black;background:lightgray'>
+        <td class='py-2'>{{Timecard.siteCode}}</td>
+        <td class='bg-white'></td>
+        <td>{{Timecard.contractorName}}</td>
+        <td class='bg-white'></td>
+        <td>{{Timecard.totalHours}} Hrs.</td>
+        <td class='bg-white'></td>
+        <td>${{Timecard.totalAmount}}.00</td>
+        <td class='bg-white'></td>
+        <td><a href='#'>Review</a></td>
+    </tr>
+    
+    {% endfor %}
+
+
+</table>
+{% endblock %}

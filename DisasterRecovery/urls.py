@@ -16,11 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import views
-from TimeClock.views import JobCodeView
-
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('timeclock/', include('TimeClock.urls', namespace='TimeClock')),
-    path('',JobCodeView.as_view(),name='JobCode')
+    path('',TemplateView.as_view(template_name='index.html'),name='Home'),
 ]

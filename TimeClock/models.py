@@ -11,7 +11,7 @@ class JobCode(models.Model):
         return u'%s' % self.jobCode
 
     def get_absolute_url(self):
-        return reverse('TimeClock:###', kwargs={'pk': self.pk})
+        return reverse('TimeClock:Jobcode')
 
 class Machine(models.Model):
     machineCode = models.TextField()
@@ -23,7 +23,7 @@ class Machine(models.Model):
         return u'%s' % self.machineCode
 
     def get_absolute_url(self):
-        return reverse('TimeClock:###', kwargs={'pk': self.pk})
+        return reverse('TimeClock:Machine')
 
 class Timecard(models.Model):
     siteCode = models.TextField()
@@ -35,4 +35,4 @@ class Timecard(models.Model):
         return u'%s' % self.siteCode
 
     def get_absolute_url(self):
-        return reverse('TimeClock:###', kwargs={'pk': self.pk})
+        return reverse('TimeClock:Timecard')
