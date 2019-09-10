@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('timeclock/', include('TimeClock.urls', namespace='TimeClock')),
     path('',TemplateView.as_view(template_name='index.html'),name='Home'),
+    path('login/', views.LoginView.as_view(template_name='login.html'),name='login'),
+    path('logout/', views.LogoutView.as_view(),name='logout'),
 ]

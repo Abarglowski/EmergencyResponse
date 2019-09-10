@@ -1,8 +1,8 @@
 {% extends 'index.html' %}
-{% block title %}Machine Management {% endblock %}
+{% block title %}{% if user.username %}Machine Management{% else %} Please Login {% endif %}{% endblock %}
 
 {% block content %}
-
+{% if perms.auth.Admin %}
 <a class='text-dark' href='/timeclock/add/machine' style='width:100%;padding-top:75px;text-align:right;'>Add New</a>
 
 
@@ -41,5 +41,5 @@
 
 
 </table>
-
+{% endif %}
 {% endblock %}

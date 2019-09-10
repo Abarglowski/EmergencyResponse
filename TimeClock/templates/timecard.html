@@ -1,8 +1,10 @@
 {% extends 'index.html' %}
-{% block title %}Timesheet Approval{% endblock %}
+{% block title %}{% if user.username %}Timesheet Approval{% else %} Please Login {% endif %}{% endblock %}
 
 {% block content %}
-<a href='#' style='width:100%;padding-top:75px;text-align:right;'>Add New</a>
+{% if perms.auth.Contractor %}
+<a class='text-dark' href='#' style='width:100%;padding-top:75px;text-align:right;'>Add New</a>
+{% endif %}
 <table style='width:100%'>
     <tr class='bg-dark text-white' style='font-size:x-large'>
         <th>Site Code</th>
@@ -13,7 +15,7 @@
         <th class='bg-white'></th>
         <th>Total Amount</th>
         <th class='bg-white'></th>
-        <th class='text-dark'>edit</th>
+        <th class='text-dark'>Review</th>
         <th class='bg-white'></th>
     </tr>
     {% for Timecard in object_list %}
@@ -27,7 +29,7 @@
         <td class='bg-white'></td>
         <td>${{Timecard.totalAmount}}.00</td>
         <td class='bg-white'></td>
-        <td><a href='#'>Review</a></td>
+        <td><a class='text-dark' href='#'>Review</a></td>
     </tr>
     
     {% endfor %}
