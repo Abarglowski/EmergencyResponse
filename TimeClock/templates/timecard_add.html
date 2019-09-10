@@ -1,14 +1,21 @@
 {% extends 'index.html' %}
-{% block title %} {% if user.username %} Add A Timecard {% else %} Please Login {% endif %} {% endblock %}
+{% block title %} {% if user.username %} Timesheet Submission {% else %} Please Login {% endif %} {% endblock %}
+{% block javascript %} 
 
-{% block javascript %}
-<script>
-function printshit(){
-    var hello = "hello"
-    document.getElementById('timecardform').appendChild(hello)
-};
-printshit();
-</script> 
+<script type='text/javascript'>
+//generate the form to look just like the word document
+//create data values for hourly cost of machines and jobcodes
+//get data from form to populate timecard model
+//submit button in form submits into timecard model
+//OPTIONAL: auto generate total when you input code and hours
+    $(document).ready(function(){
+    var message = ' success';
+    $('#timecardform').append(message);
+    
+    })
+    
+</script>
+
 {% endblock %}
 
 {% block content %}
