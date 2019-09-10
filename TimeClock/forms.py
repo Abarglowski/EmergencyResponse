@@ -10,5 +10,3 @@ class MachineForm(ModelForm):
     class Meta:
         model = Machine
         exclude = ('id',)
-
-

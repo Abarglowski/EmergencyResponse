@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <style type='text/css'>
@@ -15,12 +16,11 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
-<link rel="stylesheet" href="style.css">
 <title>DR: Disaster Recovery Application</title>
 </head>
 <body>
     <div class="row">
-        <div class="col-sm-12 text-dark mt-1" style="font-size:x-large;background:gray;">Disaster Recovery Application: Timecard Submission {% if user.username %} <p style='float:right'>{{user.username}} <a class='text-dark' href="/logout?next=/">Logout</a></p> {% else %} <a href='/login' class='text-dark' style="float:right;">login</a> {% endif %} </div> 
+        <div class="col-sm-12 text-dark mt-1" style="font-size:x-large;background:gray;">Disaster Recovery Application: Timecard Submission {% if user.username %} <p style='float:right'><a class='text-dark' href="/logout?next=/">{{user.username}}</a></p> {% else %} <a href='/login' class='text-dark' style="float:right;">login</a> {% endif %} </div> 
     </div>
     <div class="row container1">
         <div class="col-lg-3" style='background:lightgray'>
@@ -42,8 +42,11 @@
 
    
 
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{%block javascript %} {% endblock %}
 </body>
 </html>

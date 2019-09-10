@@ -4,6 +4,7 @@ from django.views.generic import DetailView, ListView, UpdateView
 from . views import EditJobCode,EditMachine,EditTimecard,JobCodeView,MachineView,TimecardView,JobCodeDelete,MachineDelete,JobCodeAdd,MachineAdd
 from . models import JobCode,Machine,Timecard
 from django.views.generic.edit import DeleteView
+from django.views.generic import TemplateView
 
 app_name='TimeClock'
 urlpatterns = [
@@ -17,6 +18,7 @@ urlpatterns = [
     path('delete/machine/<int:pk>',MachineDelete.as_view(),name='machineDelete'),
     path('delete/timecard/<int:pk>',DeleteView.as_view(),name='timecardDelete'),
     path('add/jobcode/', JobCodeAdd.as_view(),name='jobCodeAdd'),
-    path('add/machine/', MachineAdd.as_view(),name='machineAdd')
+    path('add/machine/', MachineAdd.as_view(),name='machineAdd'),
+    path('add/timecard/',TemplateView.as_view(template_name='timecard_add.html'),name='timecardAdd')
 
 ]

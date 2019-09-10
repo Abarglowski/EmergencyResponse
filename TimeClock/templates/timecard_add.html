@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% block title %} {% if user.username %} Add A Timecard {% else %} Please Login {% endif %} {% endblock %}
+
+{% block javascript %}
+<script>
+function printshit(){
+    var hello = "hello"
+    document.getElementById('timecardform').appendChild(hello)
+};
+printshit();
+</script> 
+{% endblock %}
+
+{% block content %}
+{% if perms.auth.Contractor %}
+
+<div id="timecardform">
+
+</div>
+
+
+
+{% endif %}
+{% endblock %}
+
