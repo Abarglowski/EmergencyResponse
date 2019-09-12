@@ -5,9 +5,9 @@ from . models import JobCode, Machine
 class JobCodeForm(ModelForm):
     class Meta:
         model = JobCode
-        exclude = ('id',)
+        exclude = ('id','objects')
 
 class MachineForm(ModelForm):
     class Meta:
         model = Machine
-        exclude = ('id','parents',)
+        exclude = ('id','objects',)

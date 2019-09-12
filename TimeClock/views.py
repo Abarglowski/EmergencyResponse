@@ -120,6 +120,7 @@ class TimecardAdd2(ListView):
 
 
 
+
 #class TimecardDelete(DeleteView):
 #   model = Timecard
 

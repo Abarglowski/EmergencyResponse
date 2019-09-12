@@ -2,10 +2,8 @@
 {% block title %}{% if user.username %}Timesheet Approval{% else %} Please Login {% endif %}{% endblock %}
 
 {% block content %}
-{% if perms.auth.Contractor %}
-<a class='text-dark' href='/timeclock/add/timecard/' style='width:100%;padding-top:75px;text-align:right;'>Add New</a>
-{% endif %}
-<table style='width:100%'>
+{% if perms.auth.Contractor %}<a class='text-dark' href='/timeclock/add/timecard/' style='width:100%;padding-top:75px;text-align:right;'>Add New</a>{% endif %}
+{% if perms.auth.Contractor %}<table style='width:100%;margin-top:-430px'>{% elif perms.auth.Admin %} <table style='width:100%;margin-top:50px'> {% endif %}
     <tr class='bg-dark text-white' style='font-size:x-large'>
         <th>Site Code</th>
         <th class='bg-white'></th>
@@ -36,4 +34,5 @@
 
 
 </table>
+
 {% endblock %}
