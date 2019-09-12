@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-sm-12 text-dark mt-1" style="font-size:x-large;background:gray;">Disaster Recovery Application: Timecard Submission {% if user.username %} <p style='float:right'><a class='text-dark' href="/logout?next=/">{{user.username}}</a></p> {% else %} <a href='/login' class='text-dark' style="float:right;">login</a> {% endif %} </div> 
+        <div class="col-sm-12 text-dark mt-1" style="font-size:x-large;background:gray;">Disaster Recovery Application: Timecard Submission {% if user.username %} <p style='float:right'><a class='text-dark' href="/logout?next=/">{{user.username}}</a></p> {% else %} <a href='/login' class='text-dark' style="float:right;">login</a> <a href='/timeclock/register' class='text-dark' style="float:right;">Sign up</a> {% endif %} </div>
     </div>
     <div class="row container1">
         <div class="col-lg-3" style='background:lightgray'>

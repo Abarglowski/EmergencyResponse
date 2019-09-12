@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.contrib.auth import get_user_model
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.conf import settings
 from django.http import HttpResponseRedirect
@@ -8,8 +9,61 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.utils import timezone
 from TimeClock.models import Timecard, Machine, JobCode
-
+from .forms import RegistrationMoodelForm
 # Create your views here.
+from django.contrib.auth.models import User , auth, Permission
+
+def register(request):
+
+    if request.method == 'POST':
+        username = request.POST['username']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+
+        user = User.objects.create_user(username=username, password=password1)
+        user.save()
+        if request.GET.get('Admin') == 'Admin':
+            u = User.objects.get(username=username)
+            permission = Permission.objects.get(codename='Admin')
+            u.user_permissions.add(permission)
+            print('user created')
+        return redirect('/')
+    else:
+        return render(request, 'register.html')
+
+
+
+
+
+
+
+
+
+
+
+#def modelformview(request):
+    #context = {
+        #'modelform': RegistrationMoodelForm
+
+    #}
+    #return render(request,'modelform.html', context)
+
+#def insert(request):
+    #modelform = RegistrationMoodelForm(request.POST)
+
+    #if modelform.is_valid():
+        #modelform.save()
+
+    #return redirect('addmodelform')
+
+
+
+
+
+
+
+
+
 
 class JobCodeView(ListView):
     model = JobCode
@@ -28,6 +82,16 @@ class MachineView(ListView):
         context= super().get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
+
+
+
+
+
+
+
+
+
+
 
 class TimecardView(ListView):
     model = Timecard
