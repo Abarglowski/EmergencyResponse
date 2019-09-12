@@ -2,10 +2,11 @@
 
 {% block local_content %}
 
-<div class="row mt-5 ml-1 container1" style='height:30%;border:1px solid gray;width:1000px'>
-        <h3 class='text-dark pr-5 pl-2 ' style='margin-top:-20px;margin-left:30px;background:gray;height:15%'>Labor Entry</h3>
-               <div class='float-left' style='width:100%;margin-top:-100px'>
-                    <label class='ml-5'>Machine Entry : </label>
+<div class="row mt-5 ml-1 container1" style='height:30%;border:1px solid lightgray;width:1000px'>
+        <h3 class='text-dark pr-5 pl-2 ' style='margin-top:-20px;margin-left:30px;background:lightgray;height:15%'>Machine Entry</h3>
+        <div class="col-10">
+               <div class='float-left' style='width:100%;'>
+                    <label class='ml-5'>Machine Code : </label>
                     <select id = "machineCode">
                         {% for Machine in object_list %}
                             <option value = "{{Machine.id}}">
@@ -14,10 +15,16 @@
                         {% endfor %}
                     </select>
                     
-                    <label class='ml-5'>Hrs. Worked</label>   <input style='width:50px' type='text' id='hoursWorked{{Machine.id}}'/>
-                    <label class='ml-5'>Total: </label>   <input style='width:50px' type='text' id='totalCost{{Machine.id}}'/>
+                    <label class='ml-5'>Hrs. Worked</label>   <input style='width:50px' type='text' id='hoursWorkedMachine1'/>
+                    <label class='ml-5'>Total: </label>   <input style='width:50px' type='text' id='totalCostMachine1'/>
                     
                 </div>
+                <div id='machinecodediv' class='ml-5'></div> 
+            </div>
+                    <div class="col-2">
+                        <button class='ml-5 text-primary' id="machineadd" style='margin-top:200px;background:none;border:none' href='' > Add New </button>   
+                    </div>    
+                 
 </div>
 
 {% endblock %}

@@ -6,6 +6,7 @@ class JobCode(models.Model):
     description = models.TextField()
     hourlyRate = models.IntegerField()
     maxHoursPerDay = models.IntegerField()
+    objects = models.Manager()
 
     def __unicode__(self):
         return u'%s' % self.jobCode
@@ -18,7 +19,7 @@ class Machine(models.Model):
     description = models.TextField()
     hourlyRent = models.IntegerField()
     maxHoursPerDay = models.IntegerField()
-    jobcode = models.ManyToManyField(JobCode)
+    objects = models.Manager()
     
     def __unicode__(self):
         return u'%s' % self.machineCode
@@ -31,6 +32,7 @@ class Timecard(models.Model):
     contractorName = models.TextField()
     totalHours = models.IntegerField()
     totalAmount = models.IntegerField()
+    objects = models.Manager()
 
     def __unicode__(self):
         return u'%s' % self.siteCode

@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% block title %}{% if user.username %}Review Timecard{% else %} Please Login {% endif %}{% endblock %}
+{% block content %}
+{% if perms.auth.Admin %}
+    <form method='post' enctype='multipart/form-data'>
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type='submit' value='submit'/>
+    </form>
+{% endif %}
+{% endblock %}
