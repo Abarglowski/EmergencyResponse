@@ -1,4 +1,5 @@
-from django.forms import ModelForm
+from django.forms import ModelForm,formset_factory
+from django import forms
 from . models import JobCode, Machine
 
 class JobCodeForm(ModelForm):
@@ -9,4 +10,4 @@ class JobCodeForm(ModelForm):
 class MachineForm(ModelForm):
     class Meta:
         model = Machine
-        exclude = ('id',)
+        exclude = ('id','parents',)

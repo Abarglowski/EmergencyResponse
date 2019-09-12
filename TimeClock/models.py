@@ -18,6 +18,7 @@ class Machine(models.Model):
     description = models.TextField()
     hourlyRent = models.IntegerField()
     maxHoursPerDay = models.IntegerField()
+    jobcode = models.ManyToManyField(JobCode)
     
     def __unicode__(self):
         return u'%s' % self.machineCode

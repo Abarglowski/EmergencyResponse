@@ -2,12 +2,13 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.conf import settings
 from django.http import HttpResponseRedirect
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView,TemplateView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.utils import timezone
-from . models import JobCode,Machine,Timecard
+from TimeClock.models import Timecard, Machine, JobCode
+
 # Create your views here.
 
 class JobCodeView(ListView):
@@ -93,6 +94,30 @@ class MachineAdd(CreateView):
     def form_valid(self,form):
         form.instance.user = self.request.user
         return super(MachineAdd,self).form_valid(form)
+
+class TimecardAdd(ListView):
+    model = JobCode
+    context_object_name = 'timecard_form'
+    template_name = 'timecard_jobcode.html'
+
+    def get_context_data(self,**kwargs):
+        context= super().get_context_data(**kwargs)
+        return context
+
+class TimecardAdd2(ListView):
+    model = Machine
+    template_name = 'timecard_jobcode.html'
+    def get_context_data(self,**kwargs):
+        context= super(TimecardAdd2,self).get_context_data(**kwargs)
+        context['JobCode']=JobCode.objects.all()
+        return context
+
+
+
+
+
+
+
 
 
 #class TimecardDelete(DeleteView):

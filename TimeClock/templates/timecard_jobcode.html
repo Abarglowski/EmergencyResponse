@@ -1,0 +1,23 @@
+{% extends 'timecard_add.html' %}
+
+{% block local_content %}
+
+<div class="row mt-5 ml-1 container1" style='height:30%;border:1px solid gray;width:1000px'>
+        <h3 class='text-dark pr-5 pl-2 ' style='margin-top:-20px;margin-left:30px;background:gray;height:15%'>Labor Entry</h3>
+               <div class='float-left' style='width:100%;margin-top:-100px'>
+                    <label class='ml-5'>Machine Entry : </label>
+                    <select id = "machineCode">
+                        {% for Machine in object_list %}
+                            <option value = "{{Machine.id}}">
+                                {{Machine.machineCode}}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    
+                    <label class='ml-5'>Hrs. Worked</label>   <input style='width:50px' type='text' id='hoursWorked{{Machine.id}}'/>
+                    <label class='ml-5'>Total: </label>   <input style='width:50px' type='text' id='totalCost{{Machine.id}}'/>
+                    
+                </div>
+</div>
+
+{% endblock %}
