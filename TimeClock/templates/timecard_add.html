@@ -44,8 +44,8 @@ $('#machineadd').on("click",function mach (){
     <br>`
     $('#machinecodediv').append(mach);
     });
-
-$('document').on("click","#success",function success (){
+$(document).onload(function(){
+    $('document').on("click","#success",function success (){
         var site = document.getElementById('SiteCode').value;
         var contractor = document.getElementById('ContractorName').value;
         //alert(machinecount);
@@ -77,6 +77,10 @@ $('document').on("click","#success",function success (){
         $('#machinecodediv').append(totalHrs);
         $('#machinecodediv').append(Cost);
     });
+
+
+})
+
 
 function hrs(){
 
